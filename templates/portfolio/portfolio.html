@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<header class="masthead bg-primary text-dark text-center"><h1 style="font-size: 3em">Portfolio</h1></header>
+
+<h1 class="modal-header" style="border-bottom: none;">
+    <a class="portTitle" href="{% url "display" portItem="Bread" %}">
+        Bread
+    </a>
+</h1>
+    <br>
+        <div class="grid-containerPort">
+        {% for pic in breadPics %}
+            <div style="align-self: center;">
+                <img src="{{ pic.image.url }}" width='100%' ></img>
+            </div>
+        {% endfor %}
+
+        </div>
+
+<br>
+
+<h1 class="modal-header" style="border-bottom: none;">
+    <a class="portTitle" href="{% url "display" portItem="Savory Meals" %}">
+        Savory Meals
+    </a>
+</h1>
+    <br>
+        <div class="grid-containerPort">
+        {% for pic in savPics %}
+            <div style="align-self: center;">
+                <img src="{{ pic.image.url }}" width='100%' ></img>
+            </div>
+        {% endfor %}
+        </div>
+
+<br>
+
+<h1 class="modal-header" style="border-bottom: none;">
+    <a class="portTitle" href="{% url "display" portItem="Desserts" %}">
+        Desserts
+    </a>
+</h1>
+    <br>
+        <div class="grid-containerPort">
+        {% for pic in dessertPics %}
+            <div style="align-self: center;">
+                <img src="{{ pic.image.url }}" width='100%' ></img>
+            </div>
+        {% endfor %}
+        </div>
+<br>
+<br>
+
+{% comment %} <div class="container">
+{% for post in posts %}
+<br>
+<h1 class="modal-header" style="border-bottom: none;"><a class="portTitle" href="{% url 'display' portItem=post.title %}">{{ post.title }}</a></h1>
+    <br>
+    <div class="grid-container">
+        {% for image in images%}
+        {% if post.id == image.myPost_id %}
+            <div><img src={{image.pathName}} width='100%'></img></div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+{% endfor %}
+</div> {% endcomment %}
+
+{% endblock %}

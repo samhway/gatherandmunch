@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<header class="masthead bg-primary text-dark text-center">
+    <h1 style="font-size: 3em;">{{ portItem }}</h1>
+</header>
+
+<div class="container">
+{% for cat in category %}
+    {% if cat.category == portItem %}
+        <br>
+            <div class="grid-container">
+            {% for post in posts %}
+                {% if post.category_id == cat.category %}
+                    {% for image in images %}
+                        {% if image.myPost_id == post.id %}
+                        <div style="align-self: center;">
+                            <img src="{{ image.image.url }}" width='100%' ></img>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            <br>
+            <br>
+            </div>
+    {% endif %}
+{% endfor %}
+</div>
+<br>
+<br>
+
+
+{% endblock %}
